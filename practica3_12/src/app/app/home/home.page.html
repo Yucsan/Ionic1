@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ejercicio 3.12
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="form-content">
+  <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+    <ion-item>
+      <ion-label position="floating" color="primary">Nombre</ion-label>
+      <ion-input type="text" formControlName="nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Apellidos</ion-label>
+      <ion-input type="text" formControlName="apellidos"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Fecha de nacimiento</ion-label>
+      <ion-input type="date" formControlName="fecha_nac"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Dni</ion-label>
+      <ion-input type="text" formControlName="dni" placeholder = "Introduzca su dni de esta forma: 54561232-L"></ion-input>
+    </ion-item>
+    <div class="error-message" *ngIf="validations_form.get('dni')?.touched">
+      <div *ngFor="let error of validationMessages.dni">
+        <p *ngIf="validations_form.get('dni')?.hasError(error.type)">{{ error.message }}</p>
+      </div>
+    </div>
+    <ion-button color="primary" class="submit-btn" expand="block" type="submit" [disabled]="!validations_form.valid">Enviar</ion-button>
+  </form>
+  </ion-content>

@@ -1,0 +1,34 @@
+
+<ion-header>
+
+  <ion-toolbar>
+
+    <ion-title>Pagina2</ion-title>
+
+    <ion-buttons slot="start">
+
+      <ion-back-button defaultHref="/home"></ion-back-button>
+ 
+     </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div class="ion-padding">
+
+   <p>Soy la página 2</p>
+   <h2>Información Recibida del Alumno</h2>
+   <p *ngIf="alumno">ID: {{ alumno.id }}</p>
+   <p *ngIf="alumno">Nombre: {{ alumno.nombre }}</p>
+   <p *ngIf="alumno">Edad: {{ alumno.edad }}</p>
+   <p *ngIf="alumno">Curso: {{ alumno.curso }}</p>
+
+    <ion-button routerLink="/home" routerDirection="back">Volver a home</ion-button>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Detalles usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Datos Recibidos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Nombre: {{ detail.nombre }}</p>
+      <p>Apellidos: {{ detail.apellidos }}</p>
+      <p>Fecha de nacimiento: {{ detail.fecha_nac }}</p>
+      <p>Dni: {{ detail.dni }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

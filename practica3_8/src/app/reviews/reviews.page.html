@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Valoraciones de {{ hotel?.nombre }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="hotel">
+    <ion-card-header>
+      <ion-card-title>{{ hotel.nombre }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-list *ngIf="valoraciones.length > 0; else noReviews">
+    <ion-item *ngFor="let valoracion of valoraciones">
+      <ion-label>
+        <h3>{{ valoracion.usuario }}</h3>
+        <p>{{ valoracion.comentario }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #noReviews>
+    <p style="text-align: center; margin-top: 20px;">No hay valoraciones disponibles para este hotel.</p>
+  </ng-template>
+</ion-content>
