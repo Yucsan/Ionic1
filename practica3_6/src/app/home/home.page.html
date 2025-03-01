@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Practica 3.6
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+
+  <ion-select placeholder="Seleccione Modulo" [(ngModel)]='opcionSeleccionada1'
+        (ionChange)="cambiaModulo($event)">
+
+        <span *ngFor="let opcion of opciones">
+          <ion-select-option value={{opcion}}>{{opcion}}</ion-select-option>
+        </span>
+  </ion-select>
+
+
+  <ion-select placeholder="Seleccione Ciclo" [(ngModel)]='opcionSeleccionada2'
+        (ionChange)="cambiaCiclo($event)" *ngIf="ciclos">
+
+        <span *ngFor="let ciclo of opciones3">
+          <ion-select-option value={{ciclo}}>{{ciclo}}</ion-select-option>
+        </span>
+  </ion-select>
+
+  <h6 *ngIf="muestraEso">{{esoSeleccionado}}</h6>
+  <h6 *ngIf="muestraCiclos">{{opcionSeleccionada2}}</h6>
+
+
+
+</ion-content>
