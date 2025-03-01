@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div *ngIf="mostrar">
+  <ion-input [(ngModel)]="texto1" placeholder="Sin Contenido" [disabled]="habilitar1"></ion-input>
+  <ion-button expand="block" (click)="accion1()">crea Accion 0</ion-button>  
+</div>
+
+<div *ngIf="mostrar2">
+  <ion-input [(ngModel)]="texto2" placeholder="Sin Contenido" [disabled]="habilitar2"></ion-input>
+  <ion-button expand="block" (click)="accion2()">crea Accion 1</ion-button>  
+</div>
+
+
+<div *ngIf="mostrar3">  
+  <ion-input [(ngModel)]="texto3" [disabled]="habilitar3" placeholder="Sin Contenido"></ion-input>
+  <ion-button expand="block" (click)="accion3()">crea Accion 2</ion-button>  
+</div>
+
+
+</ion-content>

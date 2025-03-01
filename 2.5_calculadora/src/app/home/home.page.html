@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Calculadora Ionic Fernando
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <div class="ion-padding">
+
+    <ion-input type="number" [(ngModel)]="num1" placeholder="Valor 1"></ion-input>
+    <ion-input type="number" [(ngModel)]="num2" placeholder="Valor 2"></ion-input>
+
+    <ion-item>
+      <ion-select [(ngModel)]="accion" label="Default label" placeholder="operacion">
+        <ion-select-option value="+">+</ion-select-option>
+        <ion-select-option value="-">-</ion-select-option>
+        <ion-select-option value="*">*</ion-select-option>
+        <ion-select-option value="/">/</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-button expand="block" (click)="opera()">resultado</ion-button>
+
+    <h2>Resultado: {{ resultado }}</h2>
+  </div>
+
+  <ion-card *ngIf="error==true">
+    <img alt="Ansiedad" src="https://santotostereo.co/wp-content/uploads/2024/07/Sin-titulo-5z-1140x675.jpg" />
+    <ion-card-header>
+      <ion-card-title>NO SE PUEDE DIVIDIR ENTRE 0</ion-card-title>
+      <ion-card-subtitle>Si no ves la imagen es porque no tienes conexion!!!</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Calculadora Ionic copyright 2024
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

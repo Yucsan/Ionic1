@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <h6>Categoria</h6>
+  <ion-item>
+    <ion-label label-placement="end">analista</ion-label>
+    <ion-checkbox [(ngModel)]="analista"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label label-placement="end">programador_junior</ion-label>
+    <ion-checkbox [(ngModel)]="junior"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label label-placement="end">programador_senior</ion-label>
+    <ion-checkbox [(ngModel)]="senior"></ion-checkbox>
+  </ion-item>
+
+  <div>
+    <h6>Ingresa un monsto de sueldo</h6>
+    <ion-input type="number" [(ngModel)]="sueldo" placeholder="Sin Contenido"></ion-input>
+  </div>
+
+  <ion-checkbox [(ngModel)]="practicas">practicantes</ion-checkbox> <!--practicantes-->
+
+
+  <ion-radio-group [(ngModel)]="ciudadSeleccionada">
+    <ion-list-header>
+      <ion-label>Ciudades</ion-label>
+    </ion-list-header>
+
+    <!-- *ngFor sobre ciudades -->
+    <ion-item *ngFor="let ciudad of ciudades">
+      <ion-label>{{ ciudad }}</ion-label>
+      <ion-radio [value]="ciudad"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+
+  <div *ngIf="ciudadSeleccionada">
+    <p>Ciudad seleccionada: {{ ciudadSeleccionada }}</p>
+  </div>
+
+  <ion-item>
+    <ion-button (click)="buscar()">
+      BUSCAR
+    </ion-button>
+</ion-item>
+
+<ion-list *ngIf="mostrarLista">
+  <ion-item *ngFor="let empleado of mostrar">
+    <ion-label>
+      <h2>{{ empleado.nombre }} {{ empleado.apellidos }}</h2>
+      <p>Categoría: {{ empleado.categoria }}</p>
+      <p>Sueldo: {{ empleado.sueldo | currency:'EUR' }}</p>
+      <p>Ciudad: {{ empleado.ciudad }}</p>
+      <p *ngIf="empleado.practicas">Está realizando prácticas</p>
+      <p *ngIf="!empleado.practicas">No está realizando prácticas</p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+
+</ion-content>

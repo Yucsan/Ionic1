@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- *ngIf="mostrar" -->
+  <!-- [disabled]="habilitar1"-->
+  <div>
+    <ion-input [(ngModel)]="apellidos" placeholder="Apellidos"></ion-input>
+    <ion-input [(ngModel)]="nombre" placeholder="Nombre"></ion-input>
+    <ion-input [(ngModel)]="provincia" placeholder="provincia"></ion-input>
+
+    <ion-item>
+      <ion-select [(ngModel)]="estadoCivil" label="Estado Civil" placeholder="estados">
+        <ion-select-option value="Casado">Casado</ion-select-option>
+        <ion-select-option value="Divorciado">Divorciado</ion-select-option>
+        <ion-select-option value="Soltero">Soltero</ion-select-option>
+        <ion-select-option value="Separado">Separado</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-checkbox *ngIf="estadoCivil !== 'Soltero'" [(ngModel)]="familia">Familia Numerosa (si o no)</ion-checkbox>
+
+    <ion-item *ngIf="apellidos && nombre && provincia && estadoCivil === 'Casado' && familia">
+      <ion-button>
+        BOTON
+      </ion-button>
+    </ion-item>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,84 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+  <ion-title>
+  Práctica 3_12
+  </ion-title>
+  </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding class="form-content">
+  <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+<!-- input nombre -->
+  <ion-item>
+    <ion-label position="floating" color="primary">Nombre</ion-label>
+    <ion-input type="text" formControlName="nombre"></ion-input>
+  </ion-item>
+
+ <!-- Mensaje error Nombre-->
+ <div class="error-message" *ngIf="validations_form.get('nombre')?.touched">
+  <div *ngFor="let error of validationMessages.nombre">
+    <p *ngIf="validations_form.get('nombre')?.hasError(error.type)">{{ error.message }}</p>
+  </div>
+</div>
+
+<!-- apellidos -->
+  <ion-item>
+    <ion-label position="floating" color="primary">Apellidos</ion-label>
+    <ion-input type="text" formControlName="apellidos"></ion-input> 
+  </ion-item>
+
+
+
+  <!-- Mensaje error apellidos -->
+  <div class="error-message" *ngIf="validations_form.get('apellidos')?.touched">
+    <div *ngFor="let error of validationMessages.apellidos">
+      <p *ngIf="validations_form.get('apellidos')?.hasError(error.type)">{{ error.message }}</p>
+    </div>
+  </div>
+
+  <ion-item>
+ <ion-label position="floating" color="primary">Fecha de Nacimiento</ion-label>
+  <ion-input type="Date" formControlName="fechaN"></ion-input>
+  </ion-item>
+
+
+  <!-- Mensaje error Fecha -->
+  <div class="error-message" *ngIf="validations_form.get('fechaN')?.touched">
+    <div *ngFor="let error of validationMessages.fechaN">
+      <p *ngIf="validations_form.get('fechaN')?.hasError(error.type)">{{ error.message }}</p>
+    </div>
+  </div>
+
+  <ion-item>
+    <ion-label position="floating" color="primary">DNI</ion-label>
+    <ion-input type="text" formControlName="dni"></ion-input>
+  </ion-item>
+
+  <!-- Mensaje error DNI -->
+  <div class="error-message" *ngIf="validations_form.get('dni')?.touched">
+    <div *ngFor="let error of validationMessages.dni">
+      <p *ngIf="validations_form.get('dni')?.hasError(error.type)">{{ error.message }}</p>
+    </div>
+  </div>
+
+  <ion-item>
+    <ion-label color="primary">I accept terms and conditions</ion-label>
+    <ion-checkbox color="primary" formControlName="terms"></ion-checkbox>
+  </ion-item>
+
+  <div class="error-message" *ngIf="validations_form.get('terms')?.touched">
+    <div *ngIf="validations_form.get('terms')?.hasError('required')">
+      <p>Esto es requerido.</p>
+    </div>
+  </div>
+
+  <div class="error-message" *ngIf="validations_form.get('terms')?.touched">
+    <div *ngIf="validations_form.get('terms')?.hasError('pattern')">
+      <p>You must accept the terms and conditions.</p>
+    </div>
+  </div>
+
+  <ion-button  *ngIf="mostrarBoton" color="primary" class="submit-btn" expand="block" type="submit" [disabled]="!validations_form.valid && esMayor">Submit data</ion-button>
+  </form>
+  </ion-content>
+  

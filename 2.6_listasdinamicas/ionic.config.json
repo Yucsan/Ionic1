@@ -1,0 +1,7 @@
+{
+  "name": "2.6_listasdinamicas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

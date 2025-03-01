@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Listas Dínamicas Ionic
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ 
+  <ol id="tareas">
+    <li>Lista de objetos:</li>
+  </ol>
+
+  <ion-input type="String" [(ngModel)]="tarea" placeholder="Nombre de la tarea: "></ion-input>
+  <ion-button expand="block" (click)="creaTarea()">crea tarea</ion-button>  
+
+</ion-content>

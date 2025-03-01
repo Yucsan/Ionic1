@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Reseña de {{ hotel?.nombre }}</ion-title>
+
+  <!--back button-->
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/home"></ion-back-button>
+  </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list *ngIf="valoraciones.length > 0; else noReviews">
+    <ion-item *ngFor="let valoracion of valoraciones">
+      <ion-label>
+        <h3>{{ valoracion.usuario }}</h3>
+        <p>{{ valoracion.comentario }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #noReviews>
+    <p style="text-align: center; margin-top: 20px;">No hay valoraciones disponibles para este hotel.</p>
+  </ng-template>
+
+
+</ion-content>

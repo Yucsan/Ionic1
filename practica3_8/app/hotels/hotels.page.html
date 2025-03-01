@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Hoteles en {{ city?.ciudad }}</ion-title>
+
+      <!--back button-->
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/home"></ion-back-button>
+       </ion-buttons>
+
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <ion-card *ngIf="city">
+    
+    <ion-card-header>
+      <ion-card-title>{{ city.ciudad }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let hotel of hoteles; let j = index" [routerLink]="['/resena', cityIndex, j]">
+      <span>Hotel : &nbsp;&nbsp;</span>{{ hotel.nombre }}
+    </ion-item>
+  </ion-list>
+
+
+
+</ion-content>
